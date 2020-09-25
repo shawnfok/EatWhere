@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Assign Variables
 var resturantsIds = [];
 var restaurantReviewsObj = {};
@@ -113,7 +112,6 @@ function getCityFromZipCode(z) {
 }
 
 getCityFromZipCode();
-=======
 function callApi() {
     var queryForcast =
     "https://developers.zomato.com/api/v2.1/geocode?lat=38.8372&lon=-77.340711"
@@ -130,4 +128,3 @@ function callApi() {
   }
   callApi();
  
->>>>>>> f52fe6e80f85f0be39a9792b5c9ed9e1438ae575
