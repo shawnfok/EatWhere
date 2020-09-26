@@ -21,7 +21,6 @@ body {
 .logo {
     position: relative;
     margin: auto;
-
     align-content: center;
 }
 
@@ -43,4 +42,13 @@ body {
     padding: 10px;
     font-weight: 600;
 
+}
+
+.color-navbar {
+    background-color: #d54141 !important;
+}
+
+.navbar-item img {
+        max-height: 3rem !important;
+        margin-top: .8rem !important;
 }
