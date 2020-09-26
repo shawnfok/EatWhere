@@ -1,132 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/style.css" />
-    <script src="https://kit.fontawesome.com/7f6813fe31.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script
+      src="https://kit.fontawesome.com/7f6813fe31.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
+    ></script>
     <title>Eat Where</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>
-        <!-- <figure alt="people meeting picture" class="cover"></figure> -->
+      <div class="things">
+        <div>
+          <img src="img/logo.png" class="logo" alt="eatwhere-logo" />
+        </div>
+        <h4 class="entryPar">This is where you will enjoy eating!</h4>
+        <div class="select" id="selectBox">
+          <select>
+            <option id="defaultOne" disabled selected>
+              Select Cuisine (Optional)
+            </option>
+            <option>African</option>
+            <option>American</option>
+            <option>Asian</option>
+            <option>BBQ</option>
+            <option>Bakery</option>
+            <option>Bar Food</option>
+            <option>Beverages</option>
+            <option>Brazilian</option>
+            <option>Breakfast</option>
+            <option>British</option>
+            <option>Bubble Tea</option>
+            <option>Burger</option>
+            <option>Cafe</option>
+            <option>Cajun</option>
+            <option>California</option>
+            <option>Caribbean</option>
+            <option>Chinese</option>
+            <option>Coffee and Tea</option>
+            <option>Crepes</option>
+            <option>Deli</option>
+            <option>Desserts</option>
+            <option>Dim Sum</option>
+            <option>Diner</option>
+            <option>Donuts</option>
+            <option>Eastern European</option>
+            <option>Ethiopian</option>
+            <option>European</option>
+            <option>Fast Food</option>
+            <option>Filipino</option>
+            <option>Fish and Chips</option>
+            <option>French</option>
+            <option>Frozen Yogurt</option>
+            <option>Fusion</option>
+            <option>German</option>
+            <option>Greek</option>
+            <option>Healthy Food</option>
+            <option>Ice Cream</option>
+            <option>Indian</option>
+            <option>Indonesian</option>
+            <option>International</option>
+            <option>Iranian</option>
+            <option>Irish</option>
+            <option>Italian</option>
+            <option>Japanese</option>
+            <option>Juices</option>
+            <option>Kebab</option>
+            <option>Korean</option>
+            <option>Latin American</option>
+            <option>Lebanese</option>
+            <option>Mediterranean</option>
+            <option>Mexican</option>
+            <option>Middle Eastern</option>
+            <option>Moroccan</option>
+            <option>New American</option>
+            <option>New Mexican</option>
+            <option>Pakistani</option>
+            <option>Peruvian</option>
+            <option>Pizza</option>
+            <option>Portuguese</option>
+            <option>Ramen</option>
+            <option>Russian</option>
+            <option>Salad</option>
+            <option>Sandwich</option>
+            <option>Scottish</option>
+            <option>Seafood</option>
+            <option>South American</option>
+            <option>Southern</option>
+            <option>Southwestern</option>
+            <option>Spanish</option>
+            <option>Steak</option>
+            <option>Sushi</option>
+            <option>Taco</option>
+            <option>Tapas</option>
+            <option>Tea</option>
+            <option>Teriyaki</option>
+            <option>Tex-Mex</option>
+            <option>Thai</option>
+            <option>Tibetan</option>
+            <option>Turkish</option>
+            <option>Vegetarian</option>
+            <option>Vietnamese</option>
+          </select>
+        </div>
 
-        <div class="things">
-            <div>
-                <img src="img/logo.png" class="logo" alt="eatwhere-logo" />
-            </div>
-            <h4 class="entryPar">This is where you will enjoy eating!</h4>
-            <div class="select"> 
-                <select>
-                    <option>Select cuisine</option>   
-              <option>African</option>
-              <option>American</option>
-              <option>Asian</option>
-              <option>BBQ</option>
-              <option>Bakery</option>
-              <option>Bar Food</option>
-              <option>Beverages</option>
-              <option>Brazilian</option>
-              <option>Breakfast</option>
-              <option>British</option>
-              <option>Bubble Tea</option>
-              <option>Burger</option>
-              <option>Cafe</option>
-              <option>Cajun</option>
-              <option>California</option>
-              <option>Caribbean</option>
-              <option>Chinese</option>
-              <option>Coffee and Tea</option>
-              <option>Crepes</option>
-              <option>Deli</option>
-              <option>Desserts</option>
-              <option>Dim Sum</option>
-              <option>Diner</option>
-              <option>Donuts</option>
-              <option>Eastern European</option>
-              <option>Ethiopian</option>
-              <option>European</option>
-              <option>Fast Food</option>
-              <option>Filipino</option>
-              <option>Fish and Chips</option>
-              <option>French</option>
-              <option>Frozen Yogurt</option>
-              <option>Fusion</option>
-              <option>German</option>
-              <option>Greek</option>
-              <option>Healthy Food</option>
-              <option>Ice Cream</option>
-              <option>Indian</option>
-              <option>Indonesian</option>
-              <option>International</option>
-              <option>Iranian</option>
-              <option>Irish</option>
-              <option>Italian</option>
-              <option>Japanese</option>
-              <option>Juices</option>
-              <option>Kebab</option>
-              <option>Korean</option>
-              <option>Latin American</option>
-              <option>Lebanese</option>
-              <option>Mediterranean</option>
-              <option>Mexican</option>
-              <option>Middle Eastern</option>
-              <option>Moroccan</option>
-              <option>New American</option>
-              <option>New Mexican</option>
-              <option>Pakistani</option>
-              <option>Peruvian</option>
-              <option>Pizza</option>
-              <option>Portuguese</option>
-              <option>Ramen</option>
-              <option>Russian</option>
-              <option>Salad</option>
-              <option>Sandwich</option>
-              <option>Scottish</option>
-              <option>Seafood</option>
-              <option>South American</option>
-              <option>Southern</option>
-              <option>Southwestern</option>
-              <option>Spanish</option>
-              <option>Steak</option>
-              <option>Sushi</option>
-              <option>Taco</option>
-              <option>Tapas</option>
-              <option>Tea</option>
-              <option>Teriyaki</option>
-              <option>Tex-Mex</option>
-              <option>Thai</option>
-              <option>Tibetan</option>
-              <option>Turkish</option>
-              <option>Vegetarian</option>
-              <option>Vietnamese</option>
-        
-             
-                 </select>
-                 
-        </div> 
-
-            <!-- <div class="inputfields">  -->
-                <input class="input entryInput" type="text" placeholder="City or Zip Code">
-                <button class="button is-primary is-outlined">Search</button>
-            </div>
-
+        <!-- <div class="inputfields">  -->
+        <input
+          class="input entryInput"
+          id="locationInput"
+          type="text"
+          placeholder="City or Zip Code"
+        />
+        <button class="button is-primary is-outlined" id="searchButton">
+          Search
+        </button>
+      </div>
     </div>
 
-        
-        
- 
-
-
     <!-- Colored raised button -->
-    <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.production.min.js"></script>
     <script src="assets/script.js"></script>
-</body>
-
+  </body>
 </html>
