@@ -9,10 +9,24 @@ var restaurantsReviewsArray = [];
 $("#searchButton").on ("click", function(){
 
     console.log("got clicked");
-    var write = $("#locationInput").val().trim();
-    var int = parseInt(write);
-    console.log(write.length);
-    console.log(int);
+
+   var cuisineEntered = $("#selectBox option:selected").val().trim();
+    var write = $("#locationInput").val().trim() || "";
+
+    if(isNaN(write)){
+        console.log("this is probably a city");
+    }
+    else{
+        console.log("this might be a zip");
+    }
+    console.log(cuisineEntered);
+    console.log(write);
+    $("#defaultOne").prop ("disabled", true);
+    $("#defaultOne").prop ("selected", true);
+    $("#locationInput").val('')
+
+
+   
 })
 
 
@@ -98,7 +112,7 @@ function getRestaurantsReviews(d) {
 function getCityFromZipCode(z) {
 
     var queryZip =
-    "https://www.zipcodeapi.com/rest/UcROKGLFeLnue77m4SgRuUHlrNYpgDl8UvOfdIWO0BTSNfoqz19zpK3w6HlLTTGC/info.json/22030/degrees";
+    "https://www.zipcodeapi.com/rest/mWainntk67HrWAs0z0Ou3L8aY3vIK8jomcgV8NM3mZks8BhGLTWfWluntvXJ3qOe/info.json/22030/degrees";
     // "https://www.zipcodeapi.com/rest/T2FVoIDOIkc3gIlel9Ob2JkmXZ9Z3y4LZbKeaQkcSuObj11IasF9xDM1B5QQtFUj/info.json/"+ z + "/degrees";
     console.log(queryZip);
 
@@ -112,19 +126,3 @@ function getCityFromZipCode(z) {
 }
 
 getCityFromZipCode();
-function callApi() {
-    var queryForcast =
-    "https://developers.zomato.com/api/v2.1/geocode?lat=38.8372&lon=-77.340711"
-    console.log(queryForcast);
-    $.ajax({
-      url: queryForcast,
-      method: "GET",
-      headers: {
-          "user-key": "9e141855e8de25a334b351ddf9e705d8"
-      }
-    }).then(function (x) {
-      console.log(x);
-    });
-  }
-  callApi();
- 
