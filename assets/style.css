@@ -1,7 +1,6 @@
 /* * {
     box-sizing: border-box
 } */
-
 body {
     background-image: url("../img/homePage.png");
     font-family: 'Open Sans', sans-serif;
@@ -24,7 +23,10 @@ body {
     align-content: center;
 }
 
-
+.select{
+    text-align: center;
+    margin: auto;
+}
 .entryInput {
     width: 300px !important;
     margin: auto !important;
