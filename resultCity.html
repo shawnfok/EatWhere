@@ -14,90 +14,32 @@
 </head>
 
 <body>
-  <!------------------------------ NAVBAR ------------------------------>
-  <!--nav bar below-->
 
-  <nav class="navbar color-navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item logo" href="index.html">
-        <img src="img/logo.png" width="112" height="28">
-      </a>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Reviews</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <h4 id="custName">Name: Jordan</h4>
+        <p id="revDate">Date: 16/2/2015</p>
+        <p id="">hjahjfdghfgsafgksdgfgsdhjg</p>
+      </section>
     </div>
-  </nav>
-
-  <!------------------------- SEARCH CRITERIA DISPLAY DIV ------------------------->
-  <!--display a string sentence: "entered CUISINE(S)" + " in " + "entered CITY NAME" below-->
-
-  <div class="result-type title is-4">
-    <div>Cafes<span> in </span>New York City</div>
   </div>
 
-  <!------------------------------ RESULT CARDS DIV ------------------------------>
-  <!--Response Class from zomato/geocode that we will capture in each result container below-->
-
-  <!--// 00a <div> // We classify ALL result cards AS class="result-card" 
-      // 00b // && AS id="#res-id[0]" (REF ".nearby_restaurants.name.id")-->
-  <div class="card result-card" id="">
-
-    <!--// 01 <figure> //  IMG: ".nearby_restaurants.featured_image" 
-      (AS class="res-img") -->
-    <div class="columns">
-      <div class="card-image column is-4 left res-img">
-        <figure class="image image image image is-3by2">
-          <img src="img/brand-awareness.png" alt="Placeholder image">
-        </figure>
-      </div>
-
-      <div class="card-content column is-8">
-
-        <!--// 02 <span> // CUISINE(S): ".popularity.top_cuisines" 
-      (AS class="cuisine"; LET'S USE SINGULAR EVEN THERE COULD BE 1+) -->
-        <div class="tags">
-          <span class="tag cuisine">Cafe</span>
-          <span class="tag cuisine">American</span>
-        </div>
-
-        <!--// 03 <h2> // NAME: ".nearby_restaurants.name" 
-      (AS class="res-name")-->
-        <div class="res-name">
-          <h2>Otto Enoteca & Pizzeria
-            <span class="tag is-primary is-rounded open-biz">Open</span>
-            <!-- <span class="tag is-dark is-rounded open-biz">Close</span> -->
-          </h2>
-        </div>
-
-        <!--// 04 <span> // RATING: ".user_rating.aggregate_rating" 
-      (AS class="rating")-->
-        <div class="rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-          <i class="far fa-star"></i>
-        </div>
-
-        <!--// 05 <p> // NEIGHBORHOOD: ".nearby_restaurants.location.locality" 
-      (AS class="locality")-->
-        <p class="address">Greenwich Village</p>
-
-        <!--// 06 <p> // ADDRESS: ".nearby_restaurants.location.address" 
-      (AS class="address")-->
-        <p class="address">1 5th Avenue, New York, NY 10003</p>
-
-      </div>
+  <article class="message is-small wrapp">
+    <div class="message-header">
+      <p>Small message</p>
+      <button class="delete is-small" aria-label="delete"></button>
     </div>
+    <div class="message-body">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla.Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus.
+    </div>
+  </article>
 
-    <footer class="card-footer">
-      <!--// 07 <a> // WEBSITE: ".nearby_restaurants.url"
-      (AS class="url")-->
-      <a href="#" class="card-footer-item res-url"><i class="fas fa-globe"></i>Website</a>
-
-      <!--// 08 <a> // PHONE: ".nearby_restaurants.phone_numbers" 
-      (AS class="phone")-->
-      <a href="#" class="card-footer-item phone"><i class="fas fa-phone-alt"></i>Call</a>
-    </footer>
-
-  </div>
 
 </body>
 
