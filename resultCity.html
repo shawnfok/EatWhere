@@ -27,7 +27,7 @@
 
   <!------------------------- SEARCH CRITERIA DISPLAY DIV ------------------------->
   <!--display a string sentence: "entered CUISINE(S)" + " in " + "entered CITY NAME" below-->
-  
+
   <div class="result-type title is-4">
     <div>Cafes<span> in </span>New York City</div>
   </div>
@@ -41,48 +41,50 @@
 
     <!--// 01 <figure> //  IMG: ".nearby_restaurants.featured_image" 
       (AS class="res-img") -->
-    <div class="card-image column is-4 left res-img">
-      <figure class="image image image image is-3by2">
-        <img src="https://bulma.io/images/placeholders/480x320.png" alt="Placeholder image">
-      </figure>
-    </div>
+    <div class="columns">
+      <div class="card-image column is-4 left res-img">
+        <figure class="image image image image is-3by2">
+          <img src="img/brand-awareness.png" alt="Placeholder image">
+        </figure>
+      </div>
 
-    <div class="card-content column is-8">
+      <div class="card-content column is-8">
 
-      <!--// 02 <span> // CUISINE(S): ".popularity.top_cuisines" 
+        <!--// 02 <span> // CUISINE(S): ".popularity.top_cuisines" 
       (AS class="cuisine"; LET'S USE SINGULAR EVEN THERE COULD BE 1+) -->
-      <div class="tags">
-        <span class="tag cuisine">Cafe</span>
-        <span class="tag cuisine">American</span>
-      </div>
+        <div class="tags">
+          <span class="tag cuisine">Cafe</span>
+          <span class="tag cuisine">American</span>
+        </div>
 
-      <!--// 03 <h2> // NAME: ".nearby_restaurants.name" 
+        <!--// 03 <h2> // NAME: ".nearby_restaurants.name" 
       (AS class="res-name")-->
-      <div class="res-name">
-        <h2>Otto Enoteca & Pizzeria
-          <span class="tag is-primary is-rounded open-biz">Open</span>
-          <!-- <span class="tag is-dark is-rounded open-biz">Close</span> -->
-        </h2>
-      </div>
+        <div class="res-name">
+          <h2>Otto Enoteca & Pizzeria
+            <span class="tag is-primary is-rounded open-biz">Open</span>
+            <!-- <span class="tag is-dark is-rounded open-biz">Close</span> -->
+          </h2>
+        </div>
 
-      <!--// 04 <span> // RATING: ".user_rating.aggregate_rating" 
+        <!--// 04 <span> // RATING: ".user_rating.aggregate_rating" 
       (AS class="rating")-->
-      <div class="rating">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half-alt"></i>
-        <i class="far fa-star"></i>
-      </div>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <i class="far fa-star"></i>
+        </div>
 
-      <!--// 05 <p> // NEIGHBORHOOD: ".nearby_restaurants.location.locality" 
+        <!--// 05 <p> // NEIGHBORHOOD: ".nearby_restaurants.location.locality" 
       (AS class="locality")-->
-      <p class="address">Greenwich Village</p>
+        <p class="address">Greenwich Village</p>
 
-      <!--// 06 <p> // ADDRESS: ".nearby_restaurants.location.address" 
+        <!--// 06 <p> // ADDRESS: ".nearby_restaurants.location.address" 
       (AS class="address")-->
-      <p class="address">1 5th Avenue, New York, NY 10003</p>
+        <p class="address">1 5th Avenue, New York, NY 10003</p>
 
+      </div>
     </div>
 
     <footer class="card-footer">
