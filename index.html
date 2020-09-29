@@ -1,139 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <script
-      src="https://kit.fontawesome.com/7f6813fe31.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
-    />
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
-    ></script>
-    <title>Eat Where</title>
-  </head>
 
-  <body>
-    <div>
-      <div class="things">
-        <div>
-          <img src="img/logo.png" class="logo" alt="eatwhere-logo" />
-        </div>
-        <h4 class="entryPar">This is where you will enjoy eating!</h4>
-        <div class="select" id="selectBox">
-          <select>
-            <option id="defaultOne" disabled selected>
-              Select Cuisine (Optional)
-            </option>
-            <option>African</option>
-            <option>American</option>
-            <option>Asian</option>
-            <option>BBQ</option>
-            <option>Bakery</option>
-            <option>Bar Food</option>
-            <option>Beverages</option>
-            <option>Brazilian</option>
-            <option>Breakfast</option>
-            <option>British</option>
-            <option>Bubble Tea</option>
-            <option>Burger</option>
-            <option>Cafe</option>
-            <option>Cajun</option>
-            <option>California</option>
-            <option>Caribbean</option>
-            <option>Chinese</option>
-            <option>Coffee and Tea</option>
-            <option>Crepes</option>
-            <option>Deli</option>
-            <option>Desserts</option>
-            <option>Dim Sum</option>
-            <option>Diner</option>
-            <option>Donuts</option>
-            <option>Eastern European</option>
-            <option>Ethiopian</option>
-            <option>European</option>
-            <option>Fast Food</option>
-            <option>Filipino</option>
-            <option>Fish and Chips</option>
-            <option>French</option>
-            <option>Frozen Yogurt</option>
-            <option>Fusion</option>
-            <option>German</option>
-            <option>Greek</option>
-            <option>Healthy Food</option>
-            <option>Ice Cream</option>
-            <option>Indian</option>
-            <option>Indonesian</option>
-            <option>International</option>
-            <option>Iranian</option>
-            <option>Irish</option>
-            <option>Italian</option>
-            <option>Japanese</option>
-            <option>Juices</option>
-            <option>Kebab</option>
-            <option>Korean</option>
-            <option>Latin American</option>
-            <option>Lebanese</option>
-            <option>Mediterranean</option>
-            <option>Mexican</option>
-            <option>Middle Eastern</option>
-            <option>Moroccan</option>
-            <option>New American</option>
-            <option>New Mexican</option>
-            <option>Pakistani</option>
-            <option>Peruvian</option>
-            <option>Pizza</option>
-            <option>Portuguese</option>
-            <option>Ramen</option>
-            <option>Russian</option>
-            <option>Salad</option>
-            <option>Sandwich</option>
-            <option>Scottish</option>
-            <option>Seafood</option>
-            <option>South American</option>
-            <option>Southern</option>
-            <option>Southwestern</option>
-            <option>Spanish</option>
-            <option>Steak</option>
-            <option>Sushi</option>
-            <option>Taco</option>
-            <option>Tapas</option>
-            <option>Tea</option>
-            <option>Teriyaki</option>
-            <option>Tex-Mex</option>
-            <option>Thai</option>
-            <option>Tibetan</option>
-            <option>Turkish</option>
-            <option>Vegetarian</option>
-            <option>Vietnamese</option>
-          </select>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="stylesheet" href="assets/styleResultPage.css" />
+  <script src="https://kit.fontawesome.com/7f6813fe31.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+  <title>Eat Where</title>
+</head>
 
-        <!-- <div class="inputfields">  -->
-        <input
-          class="input entryInput"
-          id="locationInput"
-          type="text"
-          placeholder="City or Zip Code"
-        />
-        <button class="button is-primary is-outlined" id="searchButton">
-          Search
-        </button>
+<body>
+
+  <div class="infoWrapper">
+    <div class="info">
+      <div class="">
+        <span id="temp" class="info"></span>
+        <span id="" class="info"><img id="wImageSrc" src="" class="" alt="" /></span>
+        <a href="https://jordannaei.github.io/weatherDashbpard/" class="infoButton notification" target='_blank'><span title="Get Weather Info"><i
+              class="infoFa fas fa-align-justify fa-lg"></i></span><span class="badge"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="" id="homePageContent">
+    <div class="things">
+      <div>
+        <img src="img/logo.png" class="logo" alt="eatwhere-logo" />
+      </div>
+      <h4 class="entryPar">This is where you will enjoy eating!</h4>
+      <div class="select" id="selectBox">
+        <select>
+          <option id="defaultOne" disabled selected>
+            Select Cuisine (Optional)
+          </option>
+          <option>African</option>
+          <option>American</option>
+          <option>Asian</option>
+          <option>BBQ</option>
+          <option>Bakery</option>
+          <option>Bar Food</option>
+          <option>Beverages</option>
+          <option>Brazilian</option>
+          <option>Breakfast</option>
+          <option>British</option>
+          <option>Bubble Tea</option>
+          <option>Burger</option>
+          <option>Cafe</option>
+          <option>Cajun</option>
+          <option>California</option>
+          <option>Caribbean</option>
+          <option>Chinese</option>
+          <option>Coffee and Tea</option>
+          <option>Crepes</option>
+          <option>Deli</option>
+          <option>Desserts</option>
+          <option>Dim Sum</option>
+          <option>Diner</option>
+          <option>Donuts</option>
+          <option>Eastern European</option>
+          <option>Ethiopian</option>
+          <option>European</option>
+          <option>Fast Food</option>
+          <option>Filipino</option>
+          <option>Fish and Chips</option>
+          <option>French</option>
+          <option>Frozen Yogurt</option>
+          <option>Fusion</option>
+          <option>German</option>
+          <option>Greek</option>
+          <option>Healthy Food</option>
+          <option>Ice Cream</option>
+          <option>Indian</option>
+          <option>Indonesian</option>
+          <option>International</option>
+          <option>Iranian</option>
+          <option>Irish</option>
+          <option>Italian</option>
+          <option>Japanese</option>
+          <option>Juices</option>
+          <option>Kebab</option>
+          <option>Korean</option>
+          <option>Latin American</option>
+          <option>Lebanese</option>
+          <option>Mediterranean</option>
+          <option>Mexican</option>
+          <option>Middle Eastern</option>
+          <option>Moroccan</option>
+          <option>New American</option>
+          <option>New Mexican</option>
+          <option>Pakistani</option>
+          <option>Peruvian</option>
+          <option>Pizza</option>
+          <option>Portuguese</option>
+          <option>Ramen</option>
+          <option>Russian</option>
+          <option>Salad</option>
+          <option>Sandwich</option>
+          <option>Scottish</option>
+          <option>Seafood</option>
+          <option>South American</option>
+          <option>Southern</option>
+          <option>Southwestern</option>
+          <option>Spanish</option>
+          <option>Steak</option>
+          <option>Sushi</option>
+          <option>Taco</option>
+          <option>Tapas</option>
+          <option>Tea</option>
+          <option>Teriyaki</option>
+          <option>Tex-Mex</option>
+          <option>Thai</option>
+          <option>Tibetan</option>
+          <option>Turkish</option>
+          <option>Vegetarian</option>
+          <option>Vietnamese</option>
+        </select>
+      </div>
+
+      <!-- <div class="inputfields">  -->
+      <input class="input entryInput" id="locationInput" type="text" placeholder="City or Zip Code" />
+      <button class="button is-primary is-outlined" id="searchButton">
+        Search
+      </button>
+    </div>
+
+    <!-- The modal for the validation Message -->
+    <div id="validationModal" class="modal is-clipped">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Message</p>
+        </header>
+        <section class="modal-card-body">
+          <b>Either CityName or ZipCode is required to search nearby restaurants 🙂</b>
+        </section>
+        <footer class="modal-card-foot">
+          <button id="modalOkButton" class="button is-success">Ok</button>
+        </footer>
       </div>
     </div>
 
-    <!-- Colored raised button -->
-    <script src="assets/script.js"></script>
-  </body>
+  </div>
+
+  <!-- This is the outcome of the search functionality -->
+  <div class="hide" id="resultPage">
+    <nav class="navbar color-navbar is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item logo" href="index.html">
+          <img src="img/logo-large.png">
+        </a>
+      </div>
+    </nav>
+
+    <div id="cuisineInfo"> </div>
+    <!-- <div id="cuisineMessageBox" class="message is-danger">
+      <div class="message-header">
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+       <h4><b>Hi There good to see you</b></h4>
+      </div>
+    </div> -->
+    <div class="using1" id="using"></div>
+
+    <!------------------------- SEARCH CRITERIA DISPLAY DIV ------------------------->
+    <!--display a string sentence: "entered CUISINE(S)" + " in " + "entered CITY NAME" below-->
+
+    <!-- <div class="result-type title is-4">
+      <div>Cafes<span> in </span>New York City</div>
+    </div> -->
+
+    <!------------------------------ RESULT CARDS DIV ------------------------------>
+    <!--Response Class from zomato/geocode that we will capture in each result container below-->
+
+    <!-- // 00a <div> // We classify ALL result cards AS class="result-card" 
+        // 00b // && AS id="#res-id[0]" (REF ".nearby_restaurants.name.id") -->
+    <!-- <div class="card result-card" id="resultBlockBody">
+      <div class="columns">
+        <div id="retImagediv" class="card-image column is-4 left res-img">
+          <figure class="image image image image is-3by2">
+            <img src="img/brand-awareness.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content column is-8" id="">
+          <div id="cuisinesTagsDiv" class="tags">
+            <span class="tag cuisine">Cafe</span>
+          </div>
+          <div class="res-name" id="restNameDiv">
+            <h2>Otto Enoteca & Pizzeria
+              <span class="tag is-primary is-rounded open-biz">Open</span>
+              <span class="tag is-dark is-rounded open-biz">Close</span>
+            </h2>
+          </div>
+          <div class="rating" id="restRatingDiv">
+            <span id="ratingStars">3.2</span>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <div class="addressInfo" id="restAddressDiv">
+            <p class="address">Greenwich Village</p>
+            <p class="address">15th Avenue, New York, NY 10003</p>
+          </div>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <a href="#" class="card-footer-item res-url"><i class="fas fa-globe"></i>Website</a>
+        <a href="#" class="card-footer-item phone"><i class="fas fa-phone-alt"></i>Call</a>
+        <a href="#" class="card-footer-item phone"><i class="fas fa-compass"></i>Call</a>
+      </footer>
+    </div> -->
+  </div>
+  <footer id="footer">
+    <i class="f-icon fab fa-twitter"></i>
+    <i class="f-icon fab fa-facebook"></i>
+    <i class="f-icon fab fa-instagram"></i>
+    <i class="f-icon fas fa-envelope"></i>
+    <p class="footer-p">© Copyright 2020 JSA Food Inc</p>
+  </footer>
+  <script src="assets/script.js"></script>
+</body>
+
 </html>

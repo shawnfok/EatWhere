@@ -1,8 +1,9 @@
-/* * {
-    box-sizing: border-box
-} */
+* {
+    box-sizing: border-box !important;
+}
+
 body {
-    background-image: url("../img/homePage.png");
+    background-image: url("../img/steak-dim.png");
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     line-height: 1;
@@ -14,8 +15,8 @@ body {
     bottom: 0;
     right: 0;
     left: 0;
+    overflow: auto !important;
 }
-
 
 .logo {
     position: relative;
@@ -23,27 +24,26 @@ body {
     align-content: center;
 }
 
-.select{
+.select {
     text-align: center;
     margin: auto;
 }
+
 .entryInput {
     width: 300px !important;
     margin: auto !important;
 }
 
-.things{
-   text-align: center;
-   margin-top: 15%;
-   background-color: transparent!important;
-
+.things {
+    text-align: center;
+    margin-top: 15%;
+    background-color: transparent!important;
 }
 
-.entryPar{
-    color:#ffffff ;
+.entryPar {
+    color: #ffffff;
     padding: 10px;
     font-weight: 600;
-
 }
 
 .color-navbar {
@@ -51,6 +51,115 @@ body {
 }
 
 .navbar-item img {
-        max-height: 3rem !important;
-        margin-top: .8rem !important;
+    max-height: 3rem !important;
+    margin-top: .8rem !important;
 }
+
+#resultBlockBody {
+    border-radius: 20px !important;
+    box-shadow: 1px 1px #d54141 !important;
+}
+
+/* hide class */
+
+.hide {
+    display: none;
+}
+
+h3 {
+    font-weight: bolder !important;
+    font-size: 1.5rem !important;
+}
+
+.tags {
+    margin: 0 !important;
+}
+
+.using1 {
+    margin-top: 100px;
+}
+
+.using2 {
+    margin-top: 10px;
+}
+
+/* Modal for Cuisines messages */
+
+#cuisineMessageBox {
+    margin-top: 100px !important;
+    margin-bottom: 0% !important;
+    width: 50% !important;
+    align-content: center !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* This is the selected cuisine color for the spans */
+
+.darken {
+    background-color: #ed6663 !important;
+}
+
+/* rating section */
+
+#ratingStars {
+    font-weight: bolder !important;
+    border-radius: 10px;
+}
+
+.onHover:hover {
+    cursor: pointer;
+    background-color: #d54141 ;
+}
+.infoFa:hover{
+    cursor: pointer;
+    color: #d54141 !important;
+}
+
+/* footer styling */
+
+#footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 140px;
+    color: white;
+}
+
+/* Clock section display */
+
+.infoWrapper {
+    margin-right: 82% !important;
+    margin-top: 100px;
+    padding: 0;
+}
+
+.infoButton {
+    background-color: transparent !important;
+    color: white !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.infoFa:hover {
+    cursor: pointer;
+    border-color: transparent;
+    color: gray;
+}
+
+.info {
+    display: flex;
+    align-content: center;
+    justify-content: left !important;
+    float: right;
+    padding-left: 10px;
+    color: white !important;
+    margin: 0 !important;
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+}
+
+#temp {
+    font-family: sans-serif;
+}
+
