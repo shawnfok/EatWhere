@@ -40,10 +40,52 @@ body {
     background-color: transparent!important;
 }
 
+/* Clock section display */
+
+.infoWrapper {
+    margin-right: 82% !important;
+    margin-top: 100px;
+    padding: 0;
+}
+
+.infoButton {
+    background-color: transparent !important;
+    color: white !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.infoFa:hover {
+    cursor: pointer;
+    border-color: transparent;
+    color: gray;
+}
+
+.info {
+    display: flex;
+    align-content: center;
+    justify-content: left !important;
+    float: right;
+    padding-left: 10px;
+    color: white !important;
+    margin: 0 !important;
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+}
+
+#temp {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+}
+/* end of footer styling */
+
 .entryPar {
     color: #ffffff;
     padding: 10px;
-    font-weight: 600;
+    font-weight: 500;
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 
 .color-navbar {
@@ -55,9 +97,15 @@ body {
     margin-top: .8rem !important;
 }
 
-#resultBlockBody {
+.resultBlockBody {
     border-radius: 20px !important;
     box-shadow: 1px 1px #d54141 !important;
+}
+
+#wImageSrc{
+    border-radius: 30px !important;
+    width: 40px !important;
+    height: 40px !important;
 }
 
 /* hide class */
@@ -103,7 +151,7 @@ h3 {
 
 /* rating section */
 
-#ratingStars {
+.ratingStars {
     font-weight: bolder !important;
     border-radius: 10px;
 }
@@ -117,6 +165,18 @@ h3 {
     color: #d54141 !important;
 }
 
+/* restaurant reviews on hover for spans */
+
+.open-biz {
+    margin-left: 3px !important;
+}
+.open-biz:hover{
+    cursor: pointer;
+    background-color: #008891 !important;
+}
+
+
+
 /* footer styling */
 
 #footer {
@@ -126,40 +186,4 @@ h3 {
     color: white;
 }
 
-/* Clock section display */
-
-.infoWrapper {
-    margin-right: 82% !important;
-    margin-top: 100px;
-    padding: 0;
-}
-
-.infoButton {
-    background-color: transparent !important;
-    color: white !important;
-    border: none !important;
-    padding: 0 !important;
-}
-
-.infoFa:hover {
-    cursor: pointer;
-    border-color: transparent;
-    color: gray;
-}
-
-.info {
-    display: flex;
-    align-content: center;
-    justify-content: left !important;
-    float: right;
-    padding-left: 10px;
-    color: white !important;
-    margin: 0 !important;
-    font-weight: bold !important;
-    font-size: 1.2rem !important;
-}
-
-#temp {
-    font-family: sans-serif;
-}
 

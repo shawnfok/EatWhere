@@ -49,7 +49,7 @@ $("#modalOkButton").on('click', function () {
     $(validationMessage).removeClass("is-active");
 })
 
-// The rating funtion 
+// The rating function 
 function ratings(n) {
     if (n == 1) {
         return "🌝";
@@ -126,10 +126,11 @@ function displaySearchResult(q) {
 
     for (var i = 0; i < q.nearby_restaurants.length; i++) {
         // generate parent divs
-        var resultWrapper = $(" <div class='card result-card' id='resultBlockBody'>");
+        var resultWrapper = $(" <div class='resultBlockBody card result-card'>");
+        $(resultWrapper).attr("data-id", q.nearby_restaurants[i].restaurant.id);
         var resultBeforeButtons = $(" <div class='columns'>");
         // generating the photo
-        var imgWrapper = $("<div id='retImagediv' class='card-image column is-4 left res-img'>");
+        var imgWrapper = $("<div class='card-image column is-4 left res-img'>");
         var figure = $("<figure class='image image image image is-3by2'>");
         var imageSource = q.nearby_restaurants[i].restaurant.photos_url;
         var img = $("<img src='' alt='Placeholder image'>").attr("src", "./img/image.png");
@@ -143,7 +144,7 @@ function displaySearchResult(q) {
         // generate the restaurant info wrapper
         var restInfoWrapper = $("<div class='card-content column is-8' id=''>");
         // generating the cuisines listing
-        var cuisinerWrapper = $("<div id='cuisinesTagsDiv' class='tags'>");
+        var cuisinerWrapper = $("<div class='tags'>");
         var cusineListArray = q.nearby_restaurants[i].restaurant.cuisines.split(",");
         for (var p = 0; p < cusineListArray.length; p++) {
             var cuisineList = $("<span class='tag cuisine'>").text(cusineListArray[p]);
@@ -159,24 +160,25 @@ function displaySearchResult(q) {
             holdCuisine.push(cusineListArray[p]);
         }
         // generate the ressturant name
-        var restNameWrapper = $("<div class='res-name' id='restNameDiv'>");
+        var restNameWrapper = $("<div class='res-name'>");
         var restNameText = $("<h3>").text(q.nearby_restaurants[i].restaurant.name);
-        var opperationTime = $("<span class='tag is-primary is-rounded open-biz'>").text("Open");
+        var opperationTime = $("<span class='tag is-primary is-rounded open-biz'>").text("Reviews");
+        $(opperationTime).attr("data-id", q.nearby_restaurants[i].restaurant.id);
         $(restNameText).append(opperationTime);
         restNameWrapper.append(restNameText);
         restInfoWrapper.append(restNameWrapper);
 
         // genrate the rating stars 
-        var ratingWrapper = $("<div class='rating' id='restRatingDiv'>");
+        var ratingWrapper = $("<div class='rating'>");
         var restRatingNum = q.nearby_restaurants[i].restaurant.user_rating.aggregate_rating;
         var votesRatings = q.nearby_restaurants[i].restaurant.user_rating.votes;
-        var ratingNumber = $("<span title=" + restRatingNum + " class='onHover' id='ratingStars'>").text(ratings(restRatingNum) + " | " + votesRatings + " votes");
+        var ratingNumber = $("<span title=" + restRatingNum + " class='onHover ratingStars'>").text(ratings(restRatingNum) + " | " + votesRatings + " votes");
         ratingWrapper.append(ratingNumber);
         restInfoWrapper.append(ratingWrapper);
 
 
         // generate locality
-        var addressWrrapper = $("<div class='addressInfo' id='restAddressDiv'>");
+        var addressWrrapper = $("<div class='addressInfo'>");
         var localityAreas = $("<p class='address'>").text(q.nearby_restaurants[i].restaurant.location.locality_verbose);
         addressWrrapper.append(localityAreas);
         var restAddress = $("<p class='address'>").text(q.nearby_restaurants[i].restaurant.location.address);
@@ -202,15 +204,24 @@ function displaySearchResult(q) {
     finalizeHyperLinks();
 }
 
-// generate hrefs for the direction buttons
-function finalizeHyperLinks(){
-var getButtons = $(".direction");
+// reivews function on hover
+$("#using").on('click', '.open-biz', function () {
+    var gotRestId = $(this).attr('data-id');
+    var getTheDiv = $("<div id= 'showme'><h1 class='review'/><div>");
+    getRestaurantsReviews(gotRestId, getTheDiv);
 
-for (var a= 0; a < getButtons.length; a++ ){
-    console.log($(getButtons[a]).data('address'));
-    // var url = "http://www.mapquest.com/directions/from/near" +   currentLocationLat + "," + currentLocationLon  + " to: " + ($(getButtons[a]).data('address'))  + "&maptype=map";
-    $(getButtons[a]).attr("href", "http://www.mapquest.com");
-}
+});
+
+
+// generate hrefs for the direction buttons
+function finalizeHyperLinks() {
+    var getButtons = $(".direction");
+
+    for (var a = 0; a < getButtons.length; a++) {
+        console.log($(getButtons[a]).data('address'));
+        // var url = "http://www.mapquest.com/directions/from/near" +   currentLocationLat + "," + currentLocationLon  + " to: " + ($(getButtons[a]).data('address'))  + "&maptype=map";
+        $(getButtons[a]).attr("href", "http://www.mapquest.com");
+    }
 }
 
 
@@ -273,8 +284,6 @@ function showPosition(position) {
     currentLocationLon = position.coords.longitude;
     console.log("Your coordinates are Latitude: " + currentLocationLat + " Longitude " + currentLocationLon);
     getCityName(currentLocationLat, currentLocationLon);
-
-
 }
 //get city lat and lon form name:
 function getCityLonLat(c) {
@@ -305,10 +314,18 @@ function getCityName(la, lo) {
     $.ajax({
         url: queryLonLat,
         method: "GET",
-    }).then(function (rr) {
-        console.log(rr);
-        displayWeatherInfo(rr);
-    });
+        success: function (repo) {
+            displayWeatherInfo(repo);
+            console.log(repo);
+        },
+        error: function (l, status, errorThrown) {
+
+            $("#weatherStuff").addClass("hide");
+            console.log(l);
+        }
+
+    })
+
 }
 
 //Get near by resturants, also to get ret ids 
@@ -333,39 +350,60 @@ function getNearByRetaurant(la, lo) {
 
 // Getting return if throug ids we did not use that for now  
 function getRestaurantsReviews(d) {
-    for (var i = 0; i < d.length; i++) {
-        resturantsIds.push((d[i].restaurant.id));
-        var queryReviews =
-            "https://developers.zomato.com/api/v2.1/reviews?res_id=" + resturantsIds;
-        console.log(queryReviews);
 
-        $.ajax({
-            url: queryReviews,
-            method: "GET",
-            headers: {
-                "user-key": "9e141855e8de25a334b351ddf9e705d8"
+    var queryReviews =
+        "https://developers.zomato.com/api/v2.1/reviews?res_id=" + d;
+    console.log(queryReviews);
+
+    $.ajax({
+        url: queryReviews,
+        method: "GET",
+        headers: {
+            "user-key": "9e141855e8de25a334b351ddf9e705d8"
+        },
+        success: function (resp) {
+            console.log(resp);
+            var tex = $("<div><h1 class= 'level darken'> You have something to say</h1></div>");
+            if (($(".resultBlockBody").data('id')) == d) {
+                $(".resultBlockBody").append(tex);
             }
-        }).then(function (r) {
-            console.log(r);
-        });
-    }
-
+            else {
+                console.log("do not append");
+            }
+        },
+        error: function (v, status, errorThrown) {
+            //Here the status code can be retrieved like;
+            v.status;
+            //The message added to Response object in Controller can be retrieved as following.
+            v.responseText;
+            console.log(v);
+        }
+    });
 }
+
 
 //  Getting City name and lat lon from Zip code 
 
 function getCityFromZipCode(z) {
 
     var queryZip =
-        "https://www.zipcodeapi.com/rest/D81imitJSUY9xiwfhDdRT4ImdHbtkHkodE98S7IOdymVM746u8Gl1k1z3En5ddNz/info.json/" + z + "/degrees";
+        "https://www.zipcodeapi.com/rest/jSak5SAUCyz0nBr3HnfzuYfzFzemo8eGMYnCbRXLXYKn1xkfj15qV3xSRbJrBJiJ/info.json/" + z + "/degrees";
 
     $.ajax({
         url: queryZip,
         method: "GET",
-    }).then(function (rr) {
-
-        getNearByRetaurant(rr.lat, rr.lng);
+        success: function (json) {
+            getNearByRetaurant(json.lat, json.lng);
+        },
+        error: function (xhr, status, errorThrown) {
+            //Here the status code can be retrieved like;
+            xhr.status;
+            //The message added to Response object in Controller can be retrieved as following.
+            xhr.responseText;
+            console.log(xhr);
+        }
     });
+
 }
 
 
