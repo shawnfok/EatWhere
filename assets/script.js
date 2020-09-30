@@ -13,6 +13,7 @@ var cityEntered;
 var cuisineWrapperBox = $("#cuisineInfo");
 var currentLocationLat;
 var currentLocationLon;
+var picArray=[];
 
 // Getting and validating the input fields on a click of the search buttom
 
@@ -131,9 +132,11 @@ function displaySearchResult(q) {
         var resultBeforeButtons = $(" <div class='columns'>");
         // generating the photo
         var imgWrapper = $("<div class='card-image column is-4 left res-img'>");
-        var figure = $("<figure class='image image image image is-3by2'>");
-        var imageSource = q.nearby_restaurants[i].restaurant.photos_url;
-        var img = $("<img src='' alt='Placeholder image'>").attr("src", "./img/image.png");
+        var figure = $("<figure class='image image image image is-3by3'>");
+
+        // create a relevant source to rest img
+        // var imageSource = q.nearby_restaurants[i].restaurant.photos_url;
+        var img = $("<img class='restPicPixa' src='' alt='Placeholder image'>").attr("src", picArray[i]);
         figure.append(img);
         imgWrapper.append(figure);
         resultBeforeButtons.append(imgWrapper);
@@ -300,6 +303,7 @@ function getCityLonLat(c) {
             console.log(respo);
         },
         error: function (ee, status, errorThrown) {
+            $(cityEntered).text("");
             $("#validationModal").addClass("is-active");
             $("#saySomething").text("Please provide correct CityName");
             console.log(ee.status);
@@ -394,7 +398,7 @@ function getRestaurantsReviews(d) {
 function getCityFromZipCode(z) {
 
     var queryZip =
-        "https://www.zipcodeapi.com/rest/jSak5SAUCyz0nBr3HnfzuYfzFzemo8eGMYnCbRXLXYKn1xkfj15qV3xSRbJrBJiJ/info.json/" + z + "/degrees";
+        "https://www.zipcodeapi.com/rest/CbfhCAHNTXyB8CeRplNymJtyOJaefu6l2QeUM1bjlDtFdJTgg0Fb5DaUtxvlRx4V/info.json/" + z + "/degrees";
 
     $.ajax({
         url: queryZip,
@@ -408,7 +412,7 @@ function getCityFromZipCode(z) {
             var erro = error.status;
             if (erro == 404) {
                 $("#saySomething").text("Please try again at a later time");
-                console.log("We are not authorize, check credentials");
+                console.log("We are not authorized, check credentials");
             }
             else {
                 $("#saySomething").text("Please provide correct ZipCode");
@@ -435,5 +439,35 @@ function tempKtoFConverter(k) {
     console.log(tempInF);
     return tempInF.toFixed(2);
 }
+
+// starter function for getting the client current location for Temp info 
 getLocation();
-//   getDirections();
+
+// getting the pixpay ready as a back up on our original plan, which is getting the restaurants pic from Zomato, which we could not do for lack of info and time to invistigae other venues 
+   // Example queryURL for Giphy API
+
+   function gettingRandomPixa (){
+
+    var queryFoodURL = "https://pixabay.com/api/?q=food&key=18523919-a2b9e3d6cc1371b217aaa1326&category=food&image_type=photo&safesearch=true&per_page=100";
+
+    $.ajax({
+      url: queryFoodURL,
+      method: "GET"
+    }).then(function(food) {
+      console.log(food);
+      console.log(queryFoodURL); 
+      for (var j=0; j < food.hits.length; j++ ){
+        picArray.push(food.hits[j].webformatURL);
+      }
+// Shuffling the array to create some randomness in picking the pics
+      for (let o = picArray.length - 1; o > 0; o--) {
+        var r = Math.floor(Math.random() * o);
+        var temp = picArray[o];
+        picArray[o] = picArray[r];
+        picArray[r] = temp;
+      }
+      console.log(picArray);
+      
+    });
+}
+gettingRandomPixa();

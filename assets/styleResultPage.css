@@ -3,72 +3,72 @@
 } */
 
 body {
-  background-color: #e8e8e8;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  line-height: 1;
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
-
-.color-navbar {
-  background-color: #d54141 !important;
-  text-align: center !important;
-}
-
-.navbar-item img {
-  max-height: 3rem !important;
-  margin-top: 0.8rem !important;
-  margin-left: 47vw;
-}
-
-.result-card {
-  width: 50%;
-  position: relative;
-  margin: 25px auto;
-  align-content: center;
-  border-left: 0.4rem solid #d54141;
-}
-
-h2 {
-  font-size: 36px !important;
-  font-weight: bold !important;
-}
-
-.left {
-    float: left; 
-}
-
-.result-type {
-  color: #d54141 !important;
-}
-
-.search-criteria {
-  align-content: center !important;
-  width: 50%;
-  position: relative;
-}
-
-.res-name h2 {
-  line-height: 2.5rem !important;
-}
-
-.open-biz {
-  top: 50% !important;
-  bottom: 50% !important;
-  vertical-align: middle !important;
-}
-
-svg {
-  margin-right: 5px !important;
-}
-
-.wrapp{
-  z-index: 3;
-}
+    background-color: #e8e8e8;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  
+  .color-navbar {
+    background-color: #d54141 !important;
+    text-align: center !important;
+  }
+  
+  .navbar-item img {
+    max-height: 3rem !important;
+    margin-top: 0.8rem !important;
+    margin-left: 47vw;
+  }
+  
+  .result-card {
+    width: 50%;
+    position: relative;
+    margin: 25px auto;
+    align-content: center;
+    border-left: 0.4rem solid #d54141;
+  }
+  
+  h2 {
+    font-size: 36px !important;
+    font-weight: bold !important;
+  }
+  
+  .left {
+      float: left; 
+  }
+  
+  .result-type {
+    color: #d54141 !important;
+  }
+  
+  .search-criteria {
+    align-content: center !important;
+    width: 50%;
+    position: relative;
+  }
+  
+  .res-name h2 {
+    line-height: 2.5rem !important;
+  }
+  
+  .open-biz {
+    top: 50% !important;
+    bottom: 50% !important;
+    vertical-align: middle !important;
+  }
+  
+  svg {
+    margin-right: 5px !important;
+  }
+  
+  .wrapp{
+    z-index: 3;
+  }
