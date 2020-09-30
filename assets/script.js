@@ -15,14 +15,12 @@ var currentLocationLat;
 var currentLocationLon;
 
 // Getting and validating the input fields on a click of the search buttom
-
 $("#searchButton").on("click", validateInput);
 
 function validateInput() {
     console.log("got clicked");
     cuisineEntered = $("#selectBox option:selected").val().trim();
     cityEntered = $("#locationInput").val().trim() || "";
-
 
     if (cityEntered.length < 1) {
         $(validationMessage).addClass("is-active");
@@ -43,7 +41,7 @@ function validateInput() {
     renderDisplay();
 }
 
-//adding an event on the validation modal 'OK' button
+// Adding an event on the validation modal 'OK' button
 
 $("#modalOkButton").on('click', function () {
     $(validationMessage).removeClass("is-active");
@@ -55,52 +53,52 @@ function ratings(n) {
         return "🌝";
     }
     else if (n > 1 && n < 1.5) {
-        return "🌝🌘"
+        return "🌝 🌘"
     }
     else if (n == 1.5) {
-        return "🌝🌗"
+        return "🌝 🌗"
     }
     else if (n > 1.5 && n < 2) {
-        return "🌝🌖"
+        return "🌝 🌖"
     }
     if (n == 2) {
-        return "🌝🌝";
+        return "🌝 🌝";
     }
     else if (n > 2 && n < 2.5) {
-        return "🌝🌝🌘"
+        return "🌝 🌝 🌘"
     }
     else if (n == 2.5) {
-        return "🌝🌝🌗"
+        return "🌝 🌝 🌗"
     }
     else if (n > 2.5 && n < 3) {
-        return "🌝🌝🌖"
+        return "🌝 🌝 🌖"
     }
     if (n == 3) {
-        return "🌝🌝🌝";
+        return "🌝 🌝 🌝";
     }
     else if (n > 3 && n < 3.5) {
-        return "🌝🌝🌝🌘"
+        return "🌝 🌝 🌝 🌘"
     }
     else if (n == 3.5) {
-        return "🌝🌝🌝🌗"
+        return "🌝 🌝 🌝 🌗"
     }
     else if (n > 3.5 && n < 4) {
-        return "🌝🌝🌝🌖"
+        return "🌝 🌝 🌝 🌖"
     }
     if (n == 4) {
-        return "🌝🌝🌝🌝";
+        return "🌝 🌝 🌝 🌝";
     }
     else if (n > 4 && n < 4.5) {
-        return "🌝🌝🌝🌝🌘"
+        return "🌝 🌝 🌝 🌝 🌘"
     }
     else if (n == 4.5) {
-        return "🌝🌝🌝🌝🌗"
+        return "🌝 🌝 🌝 🌝 🌗"
     }
     else if (n > 4.5 && n < 5) {
-        return "🌝🌝🌝🌝🌖"
+        return "🌝 🌝 🌝 🌝 🌖"
     }
     else if (n == 5) {
-        return "🌝🌝🌝🌝🌝";
+        return "🌝 🌝 🌝 🌝 🌝";
     }
 
     else {
@@ -125,11 +123,12 @@ function displaySearchResult(q) {
     var using = $("#using");
 
     for (var i = 0; i < q.nearby_restaurants.length; i++) {
-        // generate parent divs
+        // Generate parent divs
         var resultWrapper = $(" <div class='resultBlockBody card result-card'>");
         $(resultWrapper).attr("data-id", q.nearby_restaurants[i].restaurant.id);
         var resultBeforeButtons = $(" <div class='columns'>");
-        // generating the photo
+
+        // Generating the photo
         var imgWrapper = $("<div class='card-image column is-4 left res-img'>");
         var figure = $("<figure class='image image image image is-3by2'>");
         var imageSource = q.nearby_restaurants[i].restaurant.photos_url;
@@ -140,12 +139,13 @@ function displaySearchResult(q) {
         resultWrapper.append(resultBeforeButtons);
         using.append(resultWrapper);
 
-
-        // generate the restaurant info wrapper
+        // Generate the restaurant info wrapper
         var restInfoWrapper = $("<div class='card-content column is-8' id=''>");
-        // generating the cuisines listing
+
+        // Generating the cuisines listing
         var cuisinerWrapper = $("<div class='tags'>");
         var cusineListArray = q.nearby_restaurants[i].restaurant.cuisines.split(",");
+
         for (var p = 0; p < cusineListArray.length; p++) {
             var cuisineList = $("<span class='tag cuisine'>").text(cusineListArray[p]);
             if (cusineListArray[p] !== cuisineEntered) {
@@ -159,7 +159,8 @@ function displaySearchResult(q) {
             resultBeforeButtons.append(restInfoWrapper);
             holdCuisine.push(cusineListArray[p]);
         }
-        // generate the ressturant name
+
+        // Generate the ressturant name
         var restNameWrapper = $("<div class='res-name'>");
         var restNameText = $("<h3>").text(q.nearby_restaurants[i].restaurant.name);
         var opperationTime = $("<span class='tag is-primary is-rounded open-biz'>").text("Reviews");
@@ -168,16 +169,15 @@ function displaySearchResult(q) {
         restNameWrapper.append(restNameText);
         restInfoWrapper.append(restNameWrapper);
 
-        // genrate the rating stars 
+        // Genrate the rating stars 
         var ratingWrapper = $("<div class='rating'>");
         var restRatingNum = q.nearby_restaurants[i].restaurant.user_rating.aggregate_rating;
         var votesRatings = q.nearby_restaurants[i].restaurant.user_rating.votes;
-        var ratingNumber = $("<span title=" + restRatingNum + " class='onHover ratingStars'>").text(ratings(restRatingNum) + " | " + votesRatings + " votes");
+        var ratingNumber = $("<span title=" + restRatingNum + " class='ratingStars'>").text(ratings(restRatingNum) + " | " + votesRatings + " votes");
         ratingWrapper.append(ratingNumber);
         restInfoWrapper.append(ratingWrapper);
 
-
-        // generate locality
+        // Generate locality
         var addressWrrapper = $("<div class='addressInfo'>");
         var localityAreas = $("<p class='address'>").text(q.nearby_restaurants[i].restaurant.location.locality_verbose);
         addressWrrapper.append(localityAreas);
@@ -185,7 +185,7 @@ function displaySearchResult(q) {
         addressWrrapper.append(restAddress);
         restInfoWrapper.append(addressWrrapper);
 
-        // generate the footer of the card with two buttons 'website' and 'directions'
+        // Generate the footer of the card with two buttons 'website' and 'directions'
         var resultFooterWrapper = $(" <footer class='card-footer'>");
         var websiteButton = $("<a href='#' class='card-footer-item res-url' target='_blank'><i class='fas fa-globe'></i>Website</a>");
         $(websiteButton).attr("href", q.nearby_restaurants[i].restaurant.url);
@@ -204,16 +204,14 @@ function displaySearchResult(q) {
     finalizeHyperLinks();
 }
 
-// reivews function on hover
+// Reivews function on hover
 $("#using").on('click', '.open-biz', function () {
     var gotRestId = $(this).attr('data-id');
     var getTheDiv = $("<div id= 'showme'><h1 class='review'/><div>");
     getRestaurantsReviews(gotRestId, getTheDiv);
-
 });
 
-
-// generate hrefs for the direction buttons
+// Generate hrefs for the direction buttons
 function finalizeHyperLinks() {
     var getButtons = $(".direction");
 
@@ -223,7 +221,6 @@ function finalizeHyperLinks() {
         $(getButtons[a]).attr("href", "http://www.mapquest.com");
     }
 }
-
 
 // Adding the cuisines Message box
 function displayCuisineMessage(m) {
@@ -258,17 +255,12 @@ function displayCuisineMessage(m) {
 
 }
 
-// adding the closing on click functionality for the cuisine box
+// Adding the closing on click functionality for the cuisine box
 $("#cuisineInfo").on('click', "#cuisineMessageB", function () {
     $(cuisineWrapperBox).empty();
     $("#using").removeClass("using2").addClass("using1");
 
 })
-
-
-
-
-
 
 // Get current location lat lon so we get the weather info
 function getLocation() {
@@ -279,13 +271,15 @@ function getLocation() {
         console.log("we not permitted to get the location");;
     }
 }
+
 function showPosition(position) {
     currentLocationLat = position.coords.latitude;
     currentLocationLon = position.coords.longitude;
     console.log("Your coordinates are Latitude: " + currentLocationLat + " Longitude " + currentLocationLon);
     getCityName(currentLocationLat, currentLocationLon);
 }
-//get city lat and lon form name:
+
+// Get city lat and lon form name:
 function getCityLonLat(c) {
 
     var queryCity =
@@ -299,12 +293,10 @@ function getCityLonLat(c) {
         console.log(res.coord.lat);
         console.log(res.coord.lon);
         getNearByRetaurant(res.coord.lat, res.coord.lon)
-
     });
 }
 
-
-// get city name from Weahter API using lon and lat
+// Get city name from Weahter API using lon and lat
 function getCityName(la, lo) {
 
     var queryLonLat =
@@ -323,12 +315,10 @@ function getCityName(la, lo) {
             $("#weatherStuff").addClass("hide");
             console.log(l);
         }
-
     })
-
 }
 
-//Get near by resturants, also to get ret ids 
+// Get near by resturants, also to get ret ids 
 function getNearByRetaurant(la, lo) {
 
     var queryRestaurants =
@@ -346,7 +336,6 @@ function getNearByRetaurant(la, lo) {
         displaySearchResult(x);
     });
 }
-
 
 // Getting return if throug ids we did not use that for now  
 function getRestaurantsReviews(d) {
@@ -372,17 +361,16 @@ function getRestaurantsReviews(d) {
             }
         },
         error: function (v, status, errorThrown) {
-            //Here the status code can be retrieved like;
+            // Here the status code can be retrieved like;
             v.status;
-            //The message added to Response object in Controller can be retrieved as following.
+            // The message added to Response object in Controller can be retrieved as following.
             v.responseText;
             console.log(v);
         }
     });
 }
 
-
-//  Getting City name and lat lon from Zip code 
+// Getting City name and lat lon from Zip code 
 
 function getCityFromZipCode(z) {
 
@@ -403,16 +391,14 @@ function getCityFromZipCode(z) {
             console.log(xhr);
         }
     });
-
 }
-
 
 // Weather function info display
 function displayWeatherInfo(t) {
     console.log(t);
     var currentIcon = "https://openweathermap.org/img/w/" + t.weather[0].icon + ".png";
     $("#wImageSrc").attr("src", currentIcon);
-    $("#temp").text(tempKtoFConverter(t.main.temp) + " °F")
+    $("#temp").text(tempKtoFConverter(t.main.temp) + "°F")
 }
 
 // Temp Kalvin to F converter
@@ -420,7 +406,7 @@ function tempKtoFConverter(k) {
     var tempInK = k;
     var tempInF = (tempInK - 273.15) * (9 / 5) + 32;
     console.log(tempInF);
-    return tempInF.toFixed(2);
+    return Math.floor(tempInF);
 }
 getLocation();
 //   getDirections();
