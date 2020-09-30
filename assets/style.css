@@ -1,146 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@400;600&display=swap');
+
 * {
-    box-sizing: border-box !important;
+  box-sizing: border-box !important;
 }
 
 body {
-    background-image: url("../img/steak-dim.png");
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1;
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    overflow: auto !important;
+  background-image: url("../img/steak-dim.png");
+  font-family: 'Hind Vadodara', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  overflow: auto !important;
+}
+
+.fa-lg {
+  margin-top: 5px !important;
 }
 
 .logo {
-    position: relative;
-    margin: auto;
-    align-content: center;
+  position: relative;
+  margin: auto;
+  align-content: center;
 }
 
 .select {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
 }
 
 .entryInput {
-    width: 300px !important;
-    margin: auto !important;
+  width: 300px !important;
+  margin: auto !important;
 }
 
 .things {
-    text-align: center;
-    margin-top: 15%;
-    background-color: transparent!important;
+  text-align: center;
+  margin-top: 12%;
+  background-color: transparent !important;
 }
 
 /* Clock section display */
 
 .infoWrapper {
-    margin-right: 82% !important;
-    margin-top: 100px;
-    padding: 0;
+  margin-right: 82% !important;
+  margin-top: 100px;
+  padding: 0;
 }
 
 .infoButton {
-    background-color: transparent !important;
-    color: white !important;
-    border: none !important;
-    padding: 0 !important;
+  background-color: transparent !important;
+  color: white !important;
+  border: none !important;
+  padding: 0 !important;
 }
 
 .infoFa:hover {
-    cursor: pointer;
-    border-color: transparent;
-    color: gray;
+  cursor: pointer;
+  border-color: transparent;
+  color: gray;
 }
 
 .info {
-    display: flex;
-    align-content: center;
-    justify-content: left !important;
-    float: right;
-    padding-left: 10px;
-    color: white !important;
-    margin: 0 !important;
-    font-weight: bold !important;
-    font-size: 1.2rem !important;
+  display: flex;
+  align-content: center;
+  justify-content: left !important;
+  float: right;
+  padding-left: 10px;
+  color: white !important;
+  margin: 0 !important;
+  font-weight: bold !important;
+  font-size: 1.2rem !important;
 }
 
 #temp {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
-    font-size: 1.5rem !important;
-    font-weight: 600 !important;
+  font-family: 'Hind Vadodara', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
 }
 /* end of footer styling */
 
 .entryPar {
-    color: #ffffff;
-    padding: 10px;
-    font-weight: 500;
-    font-size: 1.4rem;
-    font-family: Arial, Helvetica, sans-serif !important;
+  color: #ffffff;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: 'Hind Vadodara', sans-serif !important;
 }
 
 .color-navbar {
-    background-color: #d54141 !important;
+  background-color: #d54141 !important;
 }
 
 .navbar-item img {
-    max-height: 3rem !important;
-    margin-top: .8rem !important;
+  max-height: 3rem !important;
+  /* margin-top: 0.8rem !important; */
+  margin-left: 47vw;
 }
 
 .resultBlockBody {
-    border-radius: 20px !important;
-    box-shadow: 1px 1px #d54141 !important;
+  border-radius: 7px !important;
+  /* box-shadow: 1px 1px #d54141 !important; */
 }
 
-#wImageSrc{
-    border-radius: 30px !important;
-    width: 40px !important;
-    height: 40px !important;
+#wImageSrc {
+  border-radius: 30px !important;
+  width: 40px !important;
+  height: 40px !important;
 }
 
 /* hide class */
 
 .hide {
-    display: none;
+  display: none;
 }
 
 h3 {
-    font-weight: bolder !important;
-    font-size: 1.5rem !important;
+  font-weight: bolder !important;
+  font-size: 1.5rem !important;
 }
 
 .tags {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 .using1 {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .using2 {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* Modal for Cuisines messages */
 
 #cuisineMessageBox {
-    margin-top: 100px !important;
-    margin-bottom: 0% !important;
-    width: 50% !important;
-    align-content: center !important;
-    justify-content: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+  margin-top: 100px !important;
+  margin-bottom: 0% !important;
+  width: 50% !important;
+  align-content: center !important;
+  justify-content: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* the rest pics for the result page */
@@ -159,44 +166,85 @@ h3 {
 
 /* This is the selected cuisine color for the spans */
 .darken {
-    background-color: #ed6663 !important;
+  background-color: #ed6663 !important;
 }
 
 /* rating section */
+.rating {
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
 
 .ratingStars {
-    font-weight: bolder !important;
-    border-radius: 10px;
+  font-weight: bolder !important;
+  border-radius: 10px;
 }
 
 .onHover:hover {
-    cursor: pointer;
-    background-color: #d54141 ;
+  cursor: pointer;
+  background-color: #d54141;
 }
-.infoFa:hover{
-    cursor: pointer;
-    color: #d54141 !important;
+.infoFa:hover {
+  cursor: pointer;
+  color: #d54141 !important;
 }
 
 /* restaurant reviews on hover for spans */
 
 .open-biz {
-    margin-left: 3px !important;
+  margin-left: 10px !important;
 }
-.open-biz:hover{
-    cursor: pointer;
-    background-color: #008891 !important;
+.open-biz:hover {
+  cursor: pointer;
+  background-color: #008891 !important;
 }
-
-
 
 /* footer styling */
 
 #footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 140px;
-    color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 140px;
+  color: white;
 }
 
+/* mobile responsivness */
 
+@media (max-width: 649px) {
+
+    /* homepage */
+    .select {
+        padding-bottom: 50px !important;
+    }
+    
+    .input {
+        margin-bottom: 10px !important;
+    }
+
+    .logo {
+        width: 85%;
+        margin-top: 50px;
+    }
+
+    .entryPar {
+        margin-bottom: 10px;
+    }
+
+    body {
+        background-image: url("../img/pasta-dim-vertical.png");
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow: auto !important;
+      }
+
+    /* result page */
+    /* .navbar-item img {
+        margin-right: 47vw !important;
+      } */
+    
+}
