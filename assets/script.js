@@ -165,6 +165,7 @@ function displaySearchResult(q) {
         var restNameText = $("<h3>").text(q.nearby_restaurants[i].restaurant.name);
         var opperationTime = $("<span class='tag is-primary is-rounded open-biz'>").text("Reviews");
         $(opperationTime).attr("data-id", q.nearby_restaurants[i].restaurant.id);
+        $(opperationTime).attr("data-url", q.nearby_restaurants[i].restaurant.url);
         $(restNameText).append(opperationTime);
         restNameWrapper.append(restNameText);
         restInfoWrapper.append(restNameWrapper);
@@ -190,12 +191,9 @@ function displaySearchResult(q) {
         var websiteButton = $("<a href='#' class='card-footer-item res-url' target='_blank'><i class='fas fa-globe'></i>Website</a>");
         $(websiteButton).attr("href", q.nearby_restaurants[i].restaurant.url);
         resultFooterWrapper.append(websiteButton);
-        // var callButton = $("<a href='#' class='card-footer-item phone' target='_blank'><i class='fas fa-phone-alt'></i>Call</a>");
-        // $(callButton).attr("data-phoneNum", q.nearby_restaurants[i].restaurant.id);
-        // resultFooterWrapper.append(callButton);
+        // generate the direction button 
         var directionButton = $("<a href='#' class='card-footer-item phone direction' target='_blank'><i class='fas fa-compass'></i>Direction</a>");
         $(directionButton).attr("data-address", (q.nearby_restaurants[i].restaurant.location.latitude + "," + q.nearby_restaurants[i].restaurant.location.longitude));
-        // $(directionButton).attr("href","");
         resultFooterWrapper.append(directionButton);
         resultWrapper.append(resultFooterWrapper);
         using.append(resultWrapper);
@@ -206,9 +204,11 @@ function displaySearchResult(q) {
 
 // Reivews function on hover
 $("#using").on('click', '.open-biz', function () {
-    var gotRestId = $(this).attr('data-id');
-    var getTheDiv = $("<div id= 'showme'><h1 class='review'/><div>");
-    getRestaurantsReviews(gotRestId, getTheDiv);
+    var gotRestUrl = $(this).attr('data-url');
+    var modifiedUrl = gotRestUrl.split('?')[0];
+    var finalUrl = modifiedUrl +"/reviews";
+    console.log(finalUrl);
+    return window.open(finalUrl);
 });
 
 // Generate hrefs for the direction buttons
@@ -217,8 +217,9 @@ function finalizeHyperLinks() {
 
     for (var a = 0; a < getButtons.length; a++) {
         console.log($(getButtons[a]).data('address'));
-        // var url = "http://www.mapquest.com/directions/from/near" +   currentLocationLat + "," + currentLocationLon  + " to: " + ($(getButtons[a]).data('address'))  + "&maptype=map";
-        $(getButtons[a]).attr("href", "http://www.mapquest.com");
+        var url = "https://www.google.com/maps/dir/" + currentLocationLat + "," + currentLocationLon + '/' + ($(getButtons[a]).data('address'));
+        console.log(url);
+        $(getButtons[a]).attr("href", url);
     }
 }
 
@@ -289,10 +290,15 @@ function getCityLonLat(c) {
     $.ajax({
         url: queryCity,
         method: "GET",
-    }).then(function (res) {
-        console.log(res.coord.lat);
-        console.log(res.coord.lon);
-        getNearByRetaurant(res.coord.lat, res.coord.lon)
+        success: function (respo) {
+            getNearByRetaurant(respo.coord.lat, respo.coord.lon)
+            console.log(respo);
+        },
+        error: function (ee, status, errorThrown) {
+            $("#validationModal").addClass("is-active");
+            $("#saySomething").text("Please provide correct CityName");
+            console.log(ee.status);
+        }
     });
 }
 
@@ -330,10 +336,17 @@ function getNearByRetaurant(la, lo) {
         method: "GET",
         headers: {
             "user-key": "9e141855e8de25a334b351ddf9e705d8"
+        },
+        success: function (x) {
+            console.log(x);
+            displaySearchResult(x);
+        },
+        error: function (ee, status, errorThrown) {
+            $("#validationModal").addClass("is-active");
+            $("#saySomething").text("Please try again at a later time");
+            var errorCode = ee.status;
+            console.log("We still dont know what happen");
         }
-    }).then(function (x) {
-        console.log(x);
-        displaySearchResult(x);
     });
 }
 
@@ -352,13 +365,8 @@ function getRestaurantsReviews(d) {
         },
         success: function (resp) {
             console.log(resp);
-            var tex = $("<div><h1 class= 'level darken'> You have something to say</h1></div>");
-            if (($(".resultBlockBody").data('id')) == d) {
-                $(".resultBlockBody").append(tex);
-            }
-            else {
-                console.log("do not append");
-            }
+
+            return resp;
         },
         error: function (v, status, errorThrown) {
             // Here the status code can be retrieved like;
@@ -383,12 +391,18 @@ function getCityFromZipCode(z) {
         success: function (json) {
             getNearByRetaurant(json.lat, json.lng);
         },
-        error: function (xhr, status, errorThrown) {
-            //Here the status code can be retrieved like;
-            xhr.status;
-            //The message added to Response object in Controller can be retrieved as following.
-            xhr.responseText;
-            console.log(xhr);
+        error: function (error, status, errorThrown) {
+            console.log(error);
+            $("#validationModal").addClass("is-active");
+            var erro = error.status;
+            if (erro == 404) {
+                $("#saySomething").text("Please try again at a later time");
+                console.log("We are not authorize, check credentials");
+            }
+            else {
+                $("#saySomething").text("Please provide correct ZipCode");
+                console.log("We are forbidden");
+            }
         }
     });
 }
