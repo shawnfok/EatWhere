@@ -241,10 +241,9 @@ h3 {
         left: 0;
         overflow: auto !important;
       }
+      #weatherStuff{
+        display: none !important;
+      }
 
-    /* result page */
-    /* .navbar-item img {
-        margin-right: 47vw !important;
-      } */
     
 }
