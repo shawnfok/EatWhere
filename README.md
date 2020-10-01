@@ -64,11 +64,11 @@ Deployed application URL: https://jordannaei.github.io/codeQuiz/index.html
 
 ###
 Mobile Friendly checker:
-<img src="MobileFriedlyTest.PNG" alt= "this is the app main page">
+<img src="img/MobileFriedlyTest.PNG" alt= "this is the app main page">
 
 ###
 DevTool Test:
-<img src="devToolTest.PNG" alt= "this is the app main page">
+<img src="img/devToolTest.PNG" alt= "this is the app main page">
 
 
 
