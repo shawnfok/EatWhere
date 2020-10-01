@@ -1,37 +1,39 @@
 # eatWhere Application
 ```
-This project is aiming to generate an application that allows the customer to provide a preferred cuisine or location as an input, then the Response to be represented with a list of nearby restaurants and additional information to help the client to make an informative decision as where to eat.   
+*   This project is aiming to generate an application that allows the customer to provide a preferred cuisine or location as an input, then the Response to be represented with a list of nearby restaurants and additional information to help the client to make an informative decision as where to eat.   
 
-To ensure the following:
-    -	Ensuring that people with disabilities can acccess the website.
-    -	Prevent any possible litigations.
+*   To ensure the following:
+    *	Ensuring that people with disabilities can acccess the website.
+    *	Prevent any possible litigations.
     
-Our Dev team built the Website and optimized the html and css code to meet the client expectations. The list below identifies the changes and enhancement our Dev team applied to the code:
-    1-	The usage of regular divs instead of other semantic html 5 elements, for simplicity.
-    2-	Ensure that the html and css style guide criteria is met.
-    5-	Generated report to the before and after website code base to exhibit the benefits of our enhancement in the following category:
-    . Performance.
-    . Best practices.
-    . Accessibility.
-    . SEO.
-    6- Ensuured that the website is responsive enough to variety of view ports sizes.
-    7- We included sceenshots of different reports to confirm the deliveriables. (Please check the word document attached).
+*   Our Dev team built the Website and optimized the html and css code to meet the client expectations. The list below identifies the changes and enhancement our Dev team applied to the code:
+    *	The usage of regular divs instead of other semantic html 5 elements, for simplicity.
+    *	Ensure that the html and css style guide criteria is met.
+    *	Generated report to the before and after website code base to exhibit the benefits of our enhancement in the following category:
+    
+        * Performance
+        * Best practices
+        * Accessibility
+        * SEO
+        
+    *   Ensuured that the website is responsive enough to variety of view ports sizes.
+    *   We included sceenshots of different reports to confirm the deliveriables. (Please check the word document attached).
 
 ```
 ## API Used
-> Zomato APIs
-  1- gecode
-  2-reviews
+* Zomato APIs
+  * gecode
+  * reviews
   
-> ZipCodeAPI
-  1- ZipCodeToLocation
+* ZipCodeAPI
+  * ZipCodeToLocation
   
-> OpenWeatherAPI
+* OpenWeatherAPI
 
-> Pixabay API
+* Pixabay API
 
 ## CSS Framework Used:
-Bulma
+*   Bulma
 
 ## User Story
 
