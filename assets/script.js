@@ -244,7 +244,7 @@ function displayCuisineMessage(m) {
         console.log("nothing about the cuisines need to be done");
     }
     else if (m.indexOf(cuisineEntered) == -1) {
-        $(messageBoxText).text("No cuisine match your prefernce, please check the result below for other options")
+        $(messageBoxText).text("No cuisine matches your preference, please check the result below for other options")
         $("#using").removeClass("using1").addClass("using2");
         cuisineWrapperBox.append(cuisineMessageBoxWrapper);
         console.log("Your cuisine was not found");
@@ -253,7 +253,7 @@ function displayCuisineMessage(m) {
     else {
         $(cuisineMessageBoxWrapper).addClass("is-success");
         $(cuisineMessageBoxWrapper).removeClass("is-danger");
-        $(messageBoxText).text("Cuisines that match you preference is higlighted in orange")
+        $(messageBoxText).text("Cuisine that matches you preference is higlighted in orange")
         $("#using").removeClass("using1").addClass("using2");
         cuisineWrapperBox.append(cuisineMessageBoxWrapper);
         console.log("Your Cuisine was found");
