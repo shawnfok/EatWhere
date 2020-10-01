@@ -2,9 +2,10 @@
 ```
 This project is aiming to generate an application that allows the customer to provide a preferred cuisine or location as an input, then the Response to be represented with a list of nearby restaurants and additional information to help the client to make an informative decision as where to eat.   
 
-to ensure the following:
-    -	ensuring that people with disabilities can acccess the website.
+To ensure the following:
+    -	Ensuring that people with disabilities can acccess the website.
     -	Prevent any possible litigations.
+    
 Our Dev team built the Website and optimized the html and css code to meet the client expectations. The list below identifies the changes and enhancement our Dev team applied to the code:
     1-	The usage of regular divs instead of other semantic html 5 elements, for simplicity.
     2-	Ensure that the html and css style guide criteria is met.
@@ -19,11 +20,14 @@ Our Dev team built the Website and optimized the html and css code to meet the c
 ```
 ## API Used
 > Zomato APIs
-  1- gecode.
+  1- gecode
   2-reviews
+  
 > ZipCodeAPI
   1- ZipCodeToLocation
+  
 > OpenWeatherAPI
+
 > Pixabay API
 
 ## CSS Framework Used:
@@ -59,7 +63,7 @@ THEN I am presented with all relevant restaurant information; Rate, Night Life I
 
 ```
 ###
-Deployed application URL: https://jordannaei.github.io/codeQuiz/index.html
+Deployed application URL: https://shawnfok.github.io/EatWhere/
 <img src="img/app.PNG" alt= "this is the app main page">
 
 ###
